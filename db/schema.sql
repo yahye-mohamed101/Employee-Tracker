@@ -27,3 +27,4 @@ CREATE TABLE employee (
 );
 
 \d department
+\d employee

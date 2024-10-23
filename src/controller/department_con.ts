@@ -3,8 +3,9 @@ import { Department, getAllDepartments, addNewDepartment } from "../db_function/
 
 //Display all of the departments
 export const promptDisplayDepartment = async (): Promise<void> => {
-    const departments: Department[] = await getAllDepartments();
-    console.table(departments);
+  
+    await getAllDepartments();
+    //console.table(departments);
 };
 
 //Adds new department 
