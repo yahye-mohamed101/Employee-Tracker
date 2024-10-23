@@ -1,6 +1,6 @@
-import inquirer from "inquirer";
+import inquirer from 'inquirer';
 import { Employee, getAllEmployees, addEmployee, updateEmployeeRole } from '../db_function/employee.js';
-import { getAllRoles } from '../db_function/role.js';
+import { Role, getAllRoles } from '../db_function/role.js';
 
 //Display employees
 export const displayEmployees = async (): Promise<void> => {
@@ -12,39 +12,27 @@ export const displayEmployees = async (): Promise<void> => {
 export const promptAddEmployee = async (): Promise<void> => {
     const roles = await getAllRoles();
     const { first_name, last_name, role_id, manager_id } = await inquirer.prompt([
+        /*{
+        type: 'input',
+        name: 'first_name',
+        message: 'First-Name:'
+        },
+*/
         {
-            type: 'input',
-            name: 'first_name',
-            message: 'First name:'
+        type: 'input',
+        name: 'last_name',
+        message: 'Last-Name:'
         },
 
-        {
-            type: 'input',
-            name: 'last_name',
-            message: 'Last name:'
-        },
         
         {
             type: 'list',
             name: 'role_id',
-            message: 'Select role:',
-            choices: roles.map((r) => ({
-                name: r.title, // Role title
-                value: r.id    // Role ID
-            })),
-        },
-
-        {
-            type: 'input',
-            name: 'manager_id',
-            message: 'Manager ID (leave blank if none):',
-            default: null
-        },
+            message: 'Select new role:',
+            //choices: roles.map((r) => ({ name: r.title, value: r.id })) 
         
-    ]);
-
-
-
+        },
+])
     const newEmployee: Employee = await addEmployee(first_name, last_name, role_id, manager_id || null);
     console.log('Employee added:', newEmployee);
 };
