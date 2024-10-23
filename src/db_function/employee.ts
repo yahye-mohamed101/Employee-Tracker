@@ -10,7 +10,7 @@ interface Employee {
 
 }
 
-//function that selects all the employees from the database and then returns it as an array
+//function that selects all the employees from the database and then returns it as an array with their roles, departments, and managers
 const getAllEmployees = async (): Promise<Employee[]> => {
     const res = await pool.query(`
      SELECT e.id, e.first_name, e.last_name, r.title AS role, d.name AS department, r.salary, 
@@ -45,4 +45,5 @@ const updateEmployee = async (employee_id: number, role_id: number): Promise<voi
     )
 }
 
+//able to be imported by other files
 export default Employee;
