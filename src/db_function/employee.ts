@@ -1,5 +1,5 @@
-import pg from 'pg';
-import { pool, connectToDb } from '../connection.js';
+
+import { pool } from '../connection.js';
 
 export interface Employee {
     first_name: string;
@@ -14,7 +14,7 @@ export interface Employee {
 export const getAllEmployees = async (): Promise<Employee[]> => {
     const res = await pool.query(`
      SELECT e.id, e.first_name, e.last_name, r.title AS role, d.name AS department, r.salary, 
-        m.first_name AS manager_first, m.last_name AS manager_last,
+        m.first_name AS manager_first, m.last_name AS manager_last
  FROM employee e
  JOIN role r ON e.role_id = r.id
  JOIN department d ON r.department_id = d.id
@@ -26,7 +26,7 @@ export const getAllEmployees = async (): Promise<Employee[]> => {
 //function to add an employee along with their first and last name, role id, and a manager id if they have a manager
 export const addEmployee = async (first_name: string, last_name: string, role_id: number, manager_id: number | null): Promise<Employee> => {
     const res = await pool.query(
-        `INSERT INTO employee ('first_name, last_name, role_id, manager_id') VALUES ($1, $2, $3, $4) RETURNING *`,
+        `INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ($1, $2, $3, $4) RETURNING *`,
         [first_name, last_name, role_id, manager_id, ]
     );
     return res.rows[0];

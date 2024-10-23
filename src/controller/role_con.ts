@@ -1,6 +1,6 @@
 import inquirer from "inquirer";
 import { Role, getAllRoles, addRole } from '../db_function/role.js';
-import { getAllDepartments } from "db_function/department.js";
+import { getAllDepartments } from "../db_function/department.js";
 
 //function that will display roles
 export const promptDisplayRole = async (): Promise<void> => {

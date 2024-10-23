@@ -1,6 +1,6 @@
 import inquirer from 'inquirer';
 import { Employee, getAllEmployees, addEmployee, updateEmployeeRole } from '../db_function/employee.js';
-import { Role, getAllRoles } from '../db_function/role.js';
+import {getAllRoles } from '../db_function/role.js';
 
 //Display employees
 export const displayEmployees = async (): Promise<void> => {
@@ -12,12 +12,12 @@ export const displayEmployees = async (): Promise<void> => {
 export const promptAddEmployee = async (): Promise<void> => {
     const roles = await getAllRoles();
     const { first_name, last_name, role_id, manager_id } = await inquirer.prompt([
-        /*{
+        {
         type: 'input',
         name: 'first_name',
         message: 'First-Name:'
         },
-*/
+
         {
         type: 'input',
         name: 'last_name',
@@ -29,9 +29,17 @@ export const promptAddEmployee = async (): Promise<void> => {
             type: 'list',
             name: 'role_id',
             message: 'Select new role:',
-            //choices: roles.map((r) => ({ name: r.title, value: r.id })) 
+            choices: roles.map((r) => ({ name: r.title, value: r.id })) 
         
         },
+
+        {
+            type: 'input',
+            name: 'manager_id',
+            message: 'Enter your manager Id (leave blank if none):',
+            
+            
+        }
 ])
     const newEmployee: Employee = await addEmployee(first_name, last_name, role_id, manager_id || null);
     console.log('Employee added:', newEmployee);

@@ -1,5 +1,5 @@
-import pg from 'pg';
-import { pool, connectToDb } from '../connection.js';
+//import pg from 'pg';
+import { pool } from '../connection.js';
 
 export interface Role {
     id: number;

@@ -2,6 +2,7 @@ import inquirer from 'inquirer';
 import { promptDisplayDepartment, promptAddNewDepartment } from './controller/department_con.js'
 import { promptDisplayRole, promptAddRole } from './controller/role_con.js';
 import { displayEmployees, promptAddEmployee, promptUpdateEmployeeRole } from './controller/employee_con.js';
+import { connectToDb } from './connection.js';
 
 // Main menu
 const mainMenu = async (): Promise<void> => {
@@ -53,4 +54,10 @@ const mainMenu = async (): Promise<void> => {
 };
 
 // Start the application
-mainMenu();
+const startApp = async () => {
+  await connectToDb();
+  await mainMenu();
+}
+
+
+startApp();
