@@ -27,4 +27,6 @@ const addRole = async (title: string, salary: number, department_id: number): Pr
     return res.rows[0]
 };
 
+export default Role
+
 

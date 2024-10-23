@@ -31,11 +31,11 @@ const addEmployee = async (first_name: string, last_name: string, role_id: numbe
     );
     return res.rows[0];
 };
-//function to delete employee. (For now)
+/*function to delete employee. (For now)
 const deleteEmployee = async (id: number): Promise<void> => {
      await pool.query(`DELETE FROM employee WHERE id = $1,` [id]);
     ;
-};
+};*/
 
 //function to update employee's role
 const updateEmployee = async (employee_id: number, role_id: number): Promise<void> => {
