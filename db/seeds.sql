@@ -1,8 +1,8 @@
-INSERT INTO department (id, name)
-VALUES  (001, 'Software Department'),
-        (002, 'Hardware Department'),
-        (003, 'AI Department'),
-        (004, 'Cloud Department');
+INSERT INTO department (name)
+VALUES  ('Software Department'),
+        ('Hardware Department'),
+        ('AI Department'),
+        ('Cloud Department');
 
 
 INSERT INTO role (id, title, salary, department_id)
