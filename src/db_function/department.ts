@@ -9,18 +9,18 @@ export interface Department {
 };
 
 //function that selects all the departments from the database and then returns it as an array
-export const getAllDepartments = async (): Promise<Department[]> => {
-    const res = await pool.query(`SELECT * FROM department`)
-    return res.rows;
+export const getAllDepartments = async (): Promise<void> => {
+    await pool.query(`SELECT * FROM department`)
+
 };
 
 //function to add a department to show
-export const addNewDepartment = async (name: string): Promise<Department> => {
-    const res = await pool.query(
+export const addNewDepartment = async (name: string): Promise<void> => {
+     await pool.query(
         `INSERT INTO department (name) VALUES ($1) RETURNING *`,
         [name]
     );
-    return res.rows[0];
+   
 };
 
 //able to be imported by other files

@@ -17,5 +17,5 @@ export const promptAddNewDepartment = async (): Promise<void> => {
 });
 
     const newDepartment: Department = await addNewDepartment(name);
-    console.log('Department added:', newDepartment);
+    console.log('Successfully added', newDepartment);
 };
