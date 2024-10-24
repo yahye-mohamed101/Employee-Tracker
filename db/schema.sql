@@ -30,3 +30,4 @@ CREATE TABLE employee (
 
 SELECT * FROM department;
 SELECT * FROM employee;
+SELECT id FROM employee

@@ -13,10 +13,10 @@ VALUES  (011, 'Team Lead', 200000, 004),
         (015, 'Mid-level Engineer', 150000, 002);
 
 
-INSERT INTO employee (id, first_name, last_name, role_id, manager_id)
-VALUES  (001, 'Doe', 'Mo', 011, NULL),
-        (002, 'John', 'Doe', 012, NULL),
-        (003, 'Ron', 'Soe', 013, NULL),
-        (004, 'Mon', 'Goe', 014, NULL),
-        (005, 'Eon', 'Loe', 015, 001);
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
+VALUES  ('Doe', 'Mo', 011, NULL),
+        ('John', 'Doe', 012, NULL),
+        ('Ron', 'Soe', 013, NULL),
+        ('Mon', 'Goe', 014, NULL),
+        ('Eon', 'Loe', 015, 001);
         

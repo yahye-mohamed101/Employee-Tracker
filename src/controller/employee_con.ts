@@ -36,12 +36,13 @@ export const promptAddEmployee = async () => {
             type: 'input',
             name: 'manager_id',
             message: 'Enter your manager Id (leave blank if none):',
-            filter: (input) => input === '' ? null : parseInt(input, 10)
+            filter: (input) => input === '' ? null : parseInt(input, 10)  // Convert empty input to null
         }
+    
     ]);
 
 
-    const newEmployee = await addEmployee(first_name, last_name, role_id, manager_id || null);
+    const newEmployee = await addEmployee(first_name, last_name, role_id, manager_id );
     console.log('Employee added:', newEmployee);
     
 
