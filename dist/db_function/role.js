@@ -3,9 +3,9 @@ import { pool } from '../connection.js';
 //function that selects all the roles from the database and then returns it as an array with the department
 export const getAllRoles = async () => {
     const res = await pool.query(`
-    SELECT role.id, role.title, role.salary, department.name AS department
-    FROM role
-    JOIN department ON role.department_id = department.id
+     SELECT r.id, r.title, r.salary, d.name AS department
+    FROM role r
+    JOIN department d ON r.department_id = d.id
     `);
     return res.rows;
 };

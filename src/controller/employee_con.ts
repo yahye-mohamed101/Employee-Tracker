@@ -1,6 +1,6 @@
 import inquirer from 'inquirer';
 import { Employee, getAllEmployees, addEmployee, updateEmployeeRole } from '../db_function/employee.js';
-import {getAllRoles } from '../db_function/role.js';
+import { getAllRoles } from '../db_function/role.js';
 
 //Display employees
 export const displayEmployees = async (): Promise<void> => {
@@ -9,40 +9,43 @@ export const displayEmployees = async (): Promise<void> => {
 };
 
 //Add an employee with a prompt
-export const promptAddEmployee = async (): Promise<void> => {
+export const promptAddEmployee = async () => {
     const roles = await getAllRoles();
     const { first_name, last_name, role_id, manager_id } = await inquirer.prompt([
-        {
-        type: 'input',
-        name: 'first_name',
-        message: 'First-Name:'
-        },
-
-        {
-        type: 'input',
-        name: 'last_name',
-        message: 'Last-Name:'
-        },
-
         
+        {
+            type: 'input',
+            name: 'first_name',
+            message: 'First-Name:'
+        },
+
+        {
+            type: 'input',
+            name: 'last_name',
+            message: 'Last-Name:'
+        },
+
         {
             type: 'list',
             name: 'role_id',
             message: 'Select new role:',
-            choices: roles.map((r) => ({ name: r.title, value: r.id })) 
-        
+            choices: roles.map((r) => ({ name: r.title, value: r.id }))
         },
 
         {
             type: 'input',
             name: 'manager_id',
             message: 'Enter your manager Id (leave blank if none):',
-            
-            
+            filter: (input) => input === '' ? null : parseInt(input, 10)
         }
-])
-    const newEmployee: Employee = await addEmployee(first_name, last_name, role_id, manager_id || null);
+    ]);
+
+
+    const newEmployee = await addEmployee(first_name, last_name, role_id, manager_id || null);
     console.log('Employee added:', newEmployee);
+    
+
+
 };
 
 

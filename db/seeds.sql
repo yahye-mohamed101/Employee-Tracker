@@ -14,9 +14,9 @@ VALUES  (011, 'Team Lead', 200000, 004),
 
 
 INSERT INTO employee (id, first_name, last_name, role_id, manager_id)
-VALUES  (021, 'Doe', 'Mo', 011, NULL),
+VALUES  (001, 'Doe', 'Mo', 011, NULL),
         (002, 'John', 'Doe', 012, NULL),
         (003, 'Ron', 'Soe', 013, NULL),
         (004, 'Mon', 'Goe', 014, NULL),
-        (005, 'Eon', 'Loe', 015, 021);
+        (005, 'Eon', 'Loe', 015, 001);
         

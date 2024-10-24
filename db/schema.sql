@@ -28,5 +28,5 @@ CREATE TABLE employee (
 );
 
 
-\d department
-\d employee
+SELECT * FROM department;
+SELECT * FROM employee;

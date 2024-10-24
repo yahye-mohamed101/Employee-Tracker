@@ -13,5 +13,5 @@ export const promptAddNewDepartment = async () => {
         message: 'Enter the new department name:',
     });
     const newDepartment = await addNewDepartment(name);
-    console.log('Department added:', newDepartment);
+    console.log('Successfully added:', newDepartment);
 };

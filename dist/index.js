@@ -2,7 +2,7 @@ import inquirer from 'inquirer';
 import { promptDisplayDepartment, promptAddNewDepartment } from './controller/department_con.js';
 import { promptDisplayRole, promptAddRole } from './controller/role_con.js';
 import { displayEmployees, promptAddEmployee, promptUpdateEmployeeRole } from './controller/employee_con.js';
-import { connectToDb } from './connection.js';
+//import { connectToDb } from './connection.js';
 // Main menu
 const mainMenu = async () => {
     const { action } = await inquirer.prompt({
@@ -50,8 +50,4 @@ const mainMenu = async () => {
     await mainMenu();
 };
 // Start the application
-const startApp = async () => {
-    await connectToDb();
-    await mainMenu();
-};
-startApp();
+mainMenu();
