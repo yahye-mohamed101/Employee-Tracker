@@ -19,7 +19,7 @@
  
 
   ## Usage
-  - [Walkthrough of Employee Tracker]
+  - [Walkthrough of Employee Tracker](https://drive.google.com/file/d/1661YE1_vve8Zo-u3cib0FckNRPr0IQP2/view?usp=sharing)
 
 
   ## Credits
